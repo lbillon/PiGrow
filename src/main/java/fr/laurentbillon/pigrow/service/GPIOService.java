@@ -4,8 +4,8 @@
  */
 package fr.laurentbillon.pigrow.service;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -14,11 +14,10 @@ import java.util.logging.Logger;
 public abstract class GPIOService {
 
     LightingState lightingState;
-    LightingState autoLightingState;
-    LightingState forceLightingOnState;
-    LightingState forceLightingOffState;
+    final LightingState autoLightingState;
+    final LightingState forceLightingOnState;
+    final LightingState forceLightingOffState;
     protected int ambientLightingValue;
-    protected boolean autoLighting = false;
     protected int autoLightingThreshold = 600;
 
     public LightingState getLightingState() {
@@ -27,19 +26,19 @@ public abstract class GPIOService {
 
     public final void setLightingState(LightingState lightingState) {
         this.lightingState = lightingState;
-        Logger.getLogger(GPIOService.class.getName()).log(Level.INFO, "Lighting state is now : {0}", getLightingState().getStateName());
+        Logger.getLogger(GPIOService.class.getName()).info("Lighting state is now : " + getLightingState().getStateName());
         getLightingState().execute();
     }
 
-    public LightingState getAutoLightingState() {
+    public final LightingState getAutoLightingState() {
         return autoLightingState;
     }
 
-    public LightingState getForceLightingOnState() {
+    public final LightingState getForceLightingOnState() {
         return forceLightingOnState;
     }
 
-    public LightingState getForceLightingOffState() {
+    public final LightingState getForceLightingOffState() {
         return forceLightingOffState;
     }
 
@@ -70,11 +69,6 @@ public abstract class GPIOService {
     public void setAmbientLightingValue(int lightingValue) {
         this.ambientLightingValue = lightingValue;
         this.getLightingState().setAmbientLightingValue(lightingValue);
-    }
-
-    public void setAutoLighting(boolean autoLighting) {
-        Logger.getLogger(WiredGPIOService.class.getName()).log(Level.INFO, "Autolighting set to " + String.valueOf(autoLighting));
-        this.autoLighting = autoLighting;
     }
 
     public int getAutoLightingThreshold() {
@@ -116,7 +110,7 @@ public abstract class GPIOService {
         }
 
         if (greenLedOn) {
-            Logger.getLogger(GPIOService.class.getName()).log(Level.INFO, "Green led is now ON");;
+            Logger.getLogger(GPIOService.class.getName()).log(Level.INFO, "Green led is now ON");
         } else {
             Logger.getLogger(GPIOService.class.getName()).log(Level.INFO, "Green led is now OFF");
         }

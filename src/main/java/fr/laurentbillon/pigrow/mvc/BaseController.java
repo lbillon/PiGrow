@@ -5,7 +5,6 @@
 package fr.laurentbillon.pigrow.mvc;
 
 import fr.laurentbillon.pigrow.service.GPIOService;
-import org.codehaus.jackson.node.JsonNodeFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,6 @@ public class BaseController {
 
     @Autowired
     private GPIOService service;
-    final JsonNodeFactory JSONfactory = JsonNodeFactory.instance;
 
     public BaseController() {
         System.out.println("fuck");
@@ -58,10 +56,10 @@ public class BaseController {
 
     private static class LightingInfo {
 
-        public boolean lighting;
-        public String lightingState;
-        public int ambientLighting;
-        public int autoLightingThreshold;
+        public final boolean lighting;
+        public final String lightingState;
+        public final int ambientLighting;
+        public final int autoLightingThreshold;
 
         public LightingInfo(boolean lighting, String lightingState, int ambientLighting, int autoLightingThreshold) {
             this.lighting = lighting;
