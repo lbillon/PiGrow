@@ -45,7 +45,7 @@ public class BaseController {
 
     @RequestMapping(value = "/forcestate.do", method = RequestMethod.GET)
     @ResponseBody
-    public void forceState(@RequestParam("state") String state) {
+    public void forceState(@RequestParam("state") String state) throws Exception {
         service.forceState(state);
     }
 
