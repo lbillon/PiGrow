@@ -11,11 +11,16 @@ public class MockSerialService extends SerialService {
 
     public MockSerialService(GPIOService gPIOService) {
         this.gPIOService = gPIOService;
+        
+        
+    }
+    
+    public void run(){
         MockAmbientLightingSensorThread mockAmbientLightingSensorThread = new MockAmbientLightingSensorThread(gPIOService);
         mockAmbientLightingSensorThread.start();
     }
 
-    private class MockAmbientLightingSensorThread extends Thread {
+    private static class MockAmbientLightingSensorThread extends Thread {
 
         private final GPIOService gPIOService;
 

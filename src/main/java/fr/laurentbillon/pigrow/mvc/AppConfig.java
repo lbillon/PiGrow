@@ -49,7 +49,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         if (System.getProperty("os.arch").equals("arm")) {
             return WiredSerialService.getInstance(GPIOService());
         } else {
-            return new MockSerialService(GPIOService());
+            MockSerialService mockSerialService = new MockSerialService(GPIOService());
+            mockSerialService.run();
+            return mockSerialService;
         }
 
     }

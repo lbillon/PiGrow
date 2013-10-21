@@ -88,7 +88,7 @@ public abstract class GPIOService {
         Logger.getLogger(GPIOService.class.getName()).log(Level.INFO, "Blink !");
     }
 
-    public void forceState(String state) {
+    public void forceState(String state) throws Exception {
         switch (state) {
             case "on":
                 this.setLightingState(this.getForceLightingOnState());
@@ -99,6 +99,9 @@ public abstract class GPIOService {
             case "auto":
                 this.setLightingState(this.getAutoLightingState());
                 break;
+            default:
+                throw new Exception("Unknown GPIOController State");
+                    
         }
     }
 

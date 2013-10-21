@@ -50,9 +50,6 @@ public class WiredSerialService extends SerialService implements SerialPortEvent
     }
 
     public void initialize() {
-        System.out.println("UUUUUUUUUUUUUUUUU");
-        System.out.println("UUUUUU.......UUUU");
-        System.out.println("UUUUUUUUUUUUUUUUU");
 
         CommPortIdentifier portId = null;
         Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
@@ -85,7 +82,7 @@ public class WiredSerialService extends SerialService implements SerialPortEvent
 
             // open the streams
             input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
-            output = serialPort.getOutputStream();
+            
 
             // add event listeners
             serialPort.addEventListener(this);

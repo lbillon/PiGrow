@@ -19,11 +19,6 @@ public class BaseController {
     @Autowired
     private GPIOService service;
 
-    public BaseController() {
-        System.out.println("fuck");
-
-    }
-
     @RequestMapping(value = "/nextlightingstate.do", method = RequestMethod.GET)
     @ResponseBody
     public void nextLightingState() {
@@ -54,7 +49,7 @@ public class BaseController {
         service.forceState(state);
     }
 
-    private static class LightingInfo {
+    public static class LightingInfo {
 
         public final boolean lighting;
         public final String lightingState;
