@@ -1,0 +1,33 @@
+<div><h2>Basilic Manager</h2>    
+    <p>
+        Luminosité actuelle : {{lightingValue}}<br/>
+    </p>
+    <div class="row">
+        <div class="btn-toolbar">
+            <div class="col-lg-12">
+                <button ng-click="getStatus()" class="btn btn-info">Refresh</button>
+                <button ng-click="water()" class="btn btn-primary">Arroser</button>                
+                <button ng-click="nextLighting()" class="btn">{{lightingMode}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="lightingMode == 'auto'">
+        <div class="col-sm-2">
+
+            <div class="form-group">
+                <label>Seuil de luminosité
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="autoLightingThreshold">
+                        <span class="input-group-btn">
+                            <button type="button" ng-click="setAutoLightingThreshold()" class="btn btn-success">Update</button>
+                        </span>
+                    </div>
+                </label>
+            </div>
+            <div class="input-group">
+
+            </div>
+        </div><!-- /.col-lg-6 -->
+
+    </div><!-- /.row -->
+</div>
