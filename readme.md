@@ -1,6 +1,6 @@
 PIGrow
 ======
-PIGrow is a simple Java gardening automation software for the Raspberry PI.
+PIGrow is a simple Java garden automation software for the Raspberry PI.
 
 Features
 --------
