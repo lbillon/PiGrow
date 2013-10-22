@@ -2,6 +2,13 @@ PIGrower
 =========
 PIGrower is a simple Java gardening automation software for the Raspberry PI.
 
+Features
+--------
+
+* Auto watering of the plants on a defined schedule (every x hours...)
+* Lighting of the plants that can be set to (on, off or auto)
+* Reads input from serial interface to gather ambient lighting data
+* Remote control from a neat web interface
 
 Tech
 -----------
