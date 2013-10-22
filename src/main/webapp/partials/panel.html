@@ -1,12 +1,12 @@
-<div><h2>Basilic Manager</h2>    
+<div><h2>PIGrow Web Interface</h2>    
     <p>
-        Luminosité actuelle : {{lightingValue}}<br/>
+        Current ambient light : {{lightingValue}}<br/>
     </p>
     <div class="row">
         <div class="btn-toolbar">
             <div class="col-lg-12">
                 <button ng-click="getStatus()" class="btn btn-info">Refresh</button>
-                <button ng-click="water()" class="btn btn-primary">Arroser</button>                
+                <button ng-click="water()" class="btn btn-primary">Water the plants</button>                
                 <button ng-click="nextLighting()" class="btn">{{lightingMode}}</button>
             </div>
         </div>
@@ -15,7 +15,7 @@
         <div class="col-sm-2">
 
             <div class="form-group">
-                <label>Seuil de luminosité
+                <label>Set autolighting threshold
                     <div class="input-group">
                         <input type="text" class="form-control" ng-model="autoLightingThreshold">
                         <span class="input-group-btn">
