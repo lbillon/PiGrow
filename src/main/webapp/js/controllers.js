@@ -39,6 +39,16 @@ function PanelCtrl($http, $scope, $timeout, apis) {
         });
     }
 
+
+    var poll = function() {
+
+        $timeout(function() {
+            $scope.getStatus();
+            poll();
+        }, 10000);
+    };
+
+    poll();
     $scope.getStatus();
 }
 
