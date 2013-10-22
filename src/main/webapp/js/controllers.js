@@ -1,33 +1,5 @@
-function HomeCtrl($scope, $routeParams) {
-
-}
-
-function AlertCtrl($scope) {
-
-    $scope.closeAlert = function(index) {
-        $scope.alerts.splice(index, 1);
-    };
-
-}
-
 function MainCtrl($scope, $routeParams, $location, $http) {
 
-    $scope.logUserIn = function(data) {
-
-        $scope.user = data;
-        console.log(data);
-
-    }
-
-    $scope.addAlert = function(message, type) {
-        $scope.alerts.push({type: type, msg: message});
-    };
-
-    $scope.resetAlerts = function() {
-        $scope.alerts = [];
-    };
-
-    $scope.alerts = [];
 }
 
 
@@ -69,29 +41,4 @@ function PanelCtrl($http, $scope, $timeout, apis) {
 
     $scope.getStatus();
 }
-
-
-function LoginCtrl($scope, $routeParams, $location, $http) {
-
-
-
-    $scope.login = function() {
-
-
-        $scope.d.action = 'login',
-                $http({
-            method: 'POST',
-            url: "/do", data: $.param($scope.d),
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).success(function(data) {
-            $location.path(contextPath + '/catalogue');
-
-            $scope.logUserIn(data);
-        }).
-                error(function(data) {
-            $scope.addAlert('Identifiants incorrects!', 'error');
-        });
-
-    }
-}
-
 
