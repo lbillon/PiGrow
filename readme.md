@@ -15,7 +15,7 @@ Tech
 PIGrow is powered by the following technologies : 
 
 * Java JEE
-* The Spring Framework ()
+* The Spring Framework
 * Twitter Bootstrap
 * Angular.js
 * PI4J
